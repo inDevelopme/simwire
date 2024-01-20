@@ -4,7 +4,8 @@ from pathlib import Path
 from flask import Flask, jsonify, request
 from flask_login import LoginManager
 from blueprints import home_bp, auth_bp, admin_bp
-from models import db, User
+from models import db
+from models.user import User
 
 
 application = app = Flask(__name__)
