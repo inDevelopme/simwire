@@ -38,9 +38,9 @@ with app.app_context():
 
 # User loader function for Flask-Login
 @login_manager.user_loader
-def load_user(user_id):
+def load_user(user_id: int):
     # Replace this with your logic for loading users from a database
-    return User.query.get(int(user_id))
+    return User.query.get(user_id)
 
 
 @app.before_request
