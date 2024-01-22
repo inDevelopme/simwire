@@ -1,12 +1,11 @@
-from env_load import Config
+from simwire_plugin.env_load import Config
 from flask_cors import CORS
 from pathlib import Path
 from flask import Flask, jsonify, request
 from flask_login import LoginManager
-from blueprints import home_bp, auth_bp, admin_bp
-from models import db
-from models.user import User
-
+from simwire_plugin.blueprints import home_bp, auth_bp, admin_bp
+from simwire_plugin.models import db
+from simwire_plugin.models.user import User
 
 application = app = Flask(__name__)
 CORS(app)
