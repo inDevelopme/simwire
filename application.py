@@ -1,22 +1,14 @@
+from flask import Flask, jsonify, request
 from simwire_plugin.env_load import Config
 from flask_cors import CORS
 from pathlib import Path
-from flask import Flask, jsonify, request
 from flask_login import LoginManager
 from simwire_plugin.blueprints import home_bp, auth_bp, admin_bp
-from simwire_plugin.models import db
+from simwire_plugin.models import db, migrate
 from simwire_plugin.models.user import User
 
-application = app = Flask(__name__)
+app = Flask(__name__, template_folder='simwire_plugin/templates')
 CORS(app)
-
-
-def get_extra_files():
-    for bp in (app.blueprints or {}).values():
-        macros_dir = Path(bp.root_path)
-        for filepath in macros_dir.rglob('*.html'):
-            yield str(filepath)
-
 
 config = Config()
 config.get_environment_config()
@@ -31,6 +23,7 @@ login_manager.init_app(app)
 
 # initialize sqlalchemy
 db.init_app(app)
+migrate.init_app(app, db)
 
 with app.app_context():
     db.create_all()
@@ -74,4 +67,4 @@ if __name__ == "__main__":
     # Setting debug to True enables debug output. This line should be
     # removed before deploying a production app.
     app.debug = True
-    app.run(extra_files=list(get_extra_files()))
+    app.run()
