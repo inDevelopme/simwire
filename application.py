@@ -3,7 +3,6 @@ from flask_cors import CORS
 from pathlib import Path
 from flask import Flask, jsonify, request
 from flask_login import LoginManager
-from flask_migrate import Migrate
 from blueprints import home_bp, auth_bp, admin_bp
 from models import db
 from models.user import User
@@ -11,7 +10,7 @@ from models.user import User
 
 application = app = Flask(__name__)
 CORS(app)
-migrate = Migrate(app, db)
+
 
 def get_extra_files():
     for bp in (app.blueprints or {}).values():
