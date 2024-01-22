@@ -4,3 +4,4 @@ virt
 .env
 .env.local
 .idea
+/venv

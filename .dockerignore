@@ -1,6 +1,7 @@
 # do not want the idea folder
 .idea
 virt/
+venv/
 
 # Exclude typical build and temporary files
 __pycache__

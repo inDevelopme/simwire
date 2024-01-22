@@ -140,3 +140,6 @@ dmypy.json
 virt/
 .ebextensions
 .env.aws
+.env.production
+.env.staging
+.elasticbeanstalk
