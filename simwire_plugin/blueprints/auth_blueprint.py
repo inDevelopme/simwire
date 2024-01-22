@@ -3,9 +3,8 @@ from flask import render_template, request, flash, url_for, redirect
 from passlib.exc import MalformedHashError, InvalidHashError
 from passlib.hash import pbkdf2_sha256
 from sqlalchemy.exc import NoResultFound, MultipleResultsFound, SQLAlchemyError
-
 from . import auth_bp
-from simwire_plugin.models import User
+from ..models import User
 
 
 def load_user(username: str):
