@@ -1,3 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 db = SQLAlchemy()
-from simwire_plugin.models.user import User
+migrate = Migrate()
+from .user import User
