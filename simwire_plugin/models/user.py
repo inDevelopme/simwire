@@ -5,9 +5,10 @@ from . import db
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False, default='unknown@unknown.com')
-    email = db.Column(db.String(120), unique=True, nullable=False,  default='unknown@unknown.com')
-    password = db.Column(db.String(200), nullable=False, default='$pbkdf2-sha256$29000$MSakNCbE.P//37t37p2TMg$RrKepAUGsqO2aBJ6Q1T5QILwPgXtnFjkhZ.6ynlYC7w')
+    username = db.Column(db.String(80), unique=True, nullable=False, default='donotactivate@company.com')
+    email = db.Column(db.String(120), unique=True, nullable=False,  default='donotactivate@company.com')
+    # default is "password"
+    password = db.Column(db.String(200), nullable=False, default='$pbkdf2-sha256$29000$cs65N8a4d25tTamVEsJY6w$ajG1MzwCeEBdsVKqwyUo7gutByshm5rC7IrPIm6CXW4')
 
     def __init__(self, username):
         self.username = username
