@@ -21,9 +21,6 @@ app.config.from_object(config)
 db.init_app(app)
 migrate.init_app(app, db)
 
-with app.app_context():
-    db.create_all()
-
 app.register_blueprint(home_bp)
 app.register_blueprint(auth_bp)
 app.register_blueprint(admin_bp)
