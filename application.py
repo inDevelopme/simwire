@@ -1,11 +1,10 @@
 from flask import Flask, jsonify, request
 from simwire_plugin.env_load import Config
 from flask_cors import CORS
-from pathlib import Path
 from flask_login import LoginManager
 from simwire_plugin.blueprints import home_bp, auth_bp, admin_bp
 from simwire_plugin.models import db, migrate
-from simwire_plugin.models.user import User
+from simwire_plugin.models import User
 
 app = Flask(__name__, template_folder='simwire_plugin/templates')
 CORS(app)
@@ -32,7 +31,7 @@ def load_user(user_id: int):
     # Replace this with your logic for loading users from a database
     return User.query.get(user_id)
 
-
+# this makes sure that we exclude health checks in the SQL session management
 @app.before_request
 def exclude_health_check_routes():
     if request.path.startswith('/health_check'):
@@ -43,6 +42,7 @@ def exclude_health_check_routes():
             return jsonify(status='error', message='error'), 500  # Return a 500 Internal Server Error on failure
 
 
+# aws uses this route to check that the site is operational
 @app.route('/health_check')
 def health_check():
     # Minimal health check logic here (e.g., check database connection)
@@ -55,6 +55,7 @@ def health_check():
         return jsonify(status='error', message='error'), 500  # Return a 500 Internal Server Error on failure
 
 
+# this makes the app aware of the modules that need to be loaded
 app.register_blueprint(home_bp)
 app.register_blueprint(auth_bp)
 app.register_blueprint(admin_bp)
