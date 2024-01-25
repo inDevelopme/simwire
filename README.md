@@ -91,7 +91,12 @@ Database = MYSQL_DATABASE
 ### Run migrations
 You simply need to run 
 `flask --app=migration-application db update` to run all the migrations that you have missed since you last update.
-This will also seed the database with data.  [Learn More](https://flask-migrate.readthedocs.io/en/latest)
+This will also seed the database with data.  [Learn More](https://flask-migrate.readthedocs.io/en/latest)  
+
+***Note: Be sure to delete this username when in your production instance.***  
+Login Username = `testing@testing.com`  
+Login Password = `password`
+
 
 ### Seeding the database container
 The database will be created automatically when the application is rebuild using the --build tag. However, the build does not seed the database with data. 
