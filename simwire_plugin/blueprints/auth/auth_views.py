@@ -1,6 +1,7 @@
 from flask_login import login_required, current_user, logout_user, login_user
 from flask import render_template, request, flash, url_for, redirect
 from simwire_plugin.blueprints.auth.auth_dao import User, load_user
+from simwire_plugin.dblib.admin.base import AdminBase
 from . import verify_password
 from flask import Blueprint
 
@@ -17,7 +18,10 @@ def login():
 @auth_bp.route('/homepage')
 @login_required
 def landing_page():
-    return f"Welcome, {current_user.id}! This is a protected page." + str(url_for('auth.landing_page'))
+    admin = AdminBase()
+    u: User = admin.get_user_by_id(current_user.id)
+
+    return f"Welcome, {current_user.id} w/ {u.username}! This is a protected page." + str(url_for('auth.landing_page'))
 
 
 @auth_bp.route('/login', methods=['POST'])
