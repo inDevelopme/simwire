@@ -1,3 +1,3 @@
-from simwire_plugin.blueprints.admin.admin_views import *
-from simwire_plugin.blueprints.auth.auth_views import *
-from simwire_plugin.blueprints.home_blueprint import *
+from .admin.admin_views import *
+from .auth.auth_views import *
+from .home_blueprint import *

@@ -1,7 +1,7 @@
 from flask_login import login_required, current_user, logout_user, login_user
 from flask import render_template, request, flash, url_for, redirect
-from simwire_plugin.blueprints.auth.auth_dao import User, load_user
-from simwire_plugin.dblib.admin.base import AdminBase
+from .auth_dao import User, load_user
+from ..admin.admin_dblib import AdminBase
 from . import verify_password
 from flask import Blueprint
 

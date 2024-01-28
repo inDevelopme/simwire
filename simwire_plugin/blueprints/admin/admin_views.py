@@ -1,7 +1,7 @@
 from flask_login import login_required, current_user
 from flask import render_template
 from flask import Blueprint
-from simwire_plugin.dblib.admin.base import AdminBase
+from .admin_dblib import AdminBase
 
 admin_bp = Blueprint('admin', __name__, template_folder='templates')
 
