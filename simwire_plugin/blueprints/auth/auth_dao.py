@@ -1,5 +1,5 @@
 from sqlalchemy.exc import NoResultFound, MultipleResultsFound, SQLAlchemyError
-from simwire_plugin.models import User
+from ...models import User
 from typing import Union
 
 

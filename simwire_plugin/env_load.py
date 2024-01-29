@@ -28,7 +28,7 @@ class Config(object):
 
     def get_environment_config(self):
         environment_filepaths = [
-            join(dirname(__file__), '../.env.local'),
+            join(dirname(__file__), '.env.local'),
             join(dirname(__file__), '../.env.aws')
         ]
 
