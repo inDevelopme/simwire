@@ -89,10 +89,10 @@ Password = MYSQL_ROOT_PASSWORD
 Database = MYSQL_DATABASE
 
 ### Run migrations
-You need to be in the application directory (ie. same directory as app.py) to run the migrations
+You need to be in the application directory (i.e. same directory as app.py) to run the migrations
 You simply need to run `flask db upgrade` to run all the migrations that you have missed since you last update.
-This will also seed the database with data.  [Learn More](https://flask-migrate.readthedocs.io/en/latest)
-
+This will also seed the database with data.  [Learn More](https://flask-migrate.readthedocs.io/en/latest)  
+**_Note: Try toggling the "RUN_WEB_USING_IDE" if you get a connection issue with running the update against container_**  
 ***Note: Be sure to delete this username when in your production instance.***  
 Login Username = `testing@testing.com`  
 Login Password = `password`
@@ -104,5 +104,5 @@ Checkout the migrations folder for working examples of how to create your own se
 
 
 ## Test Case
-For running tests you simply need to be within the application directory (ie. same level as the "tests" folder)  
+For running tests you simply need to be within the application directory (i.e. same level as the "tests" folder)  
 Then run `pytest` to run all test cases within the application including the test cases for plugins.
