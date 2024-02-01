@@ -28,7 +28,7 @@ Replacing `venv` with your preferred virtual environment name:
    After activation, your terminal prompt should change to indicate that the virtual environment is active.
 
 5. Install Flask and its dependencies within the virtual environment:  
-`pip install flask`
+`pip install -r requirements.txt`
 
 Now you have a virtual environment set up for your Flask project. 
 You can start building your Flask application within this isolated environment.  
@@ -54,7 +54,7 @@ Replacing `venv` with your preferred virtual environment name:
 After activation, your terminal prompt should change to indicate that the virtual environment is active.
 
 5. Install Flask and its dependencies within the virtual environment:  
-`pip install flask`
+`pip install -r requirements.txt`
 
 Now you have a virtual environment set up for your Flask project. 
 You can start building your Flask application within this isolated environment.  
