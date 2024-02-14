@@ -1,5 +1,32 @@
 # Simwire-plugin
 
+**Very Important: Any code change made on the webserver requires a rebuild of the web container!**
+
+## Get the React frontend working with the backend containers locally
+### Install NodeJS and Visual Studio
+Use the following link to [install NodeJS](https://nodejs.org/en/download/current)
+
+Make sure to install ***choco*** if you are using a windows environment; the windows install will give you this option.  
+Do a system reboot if you encounter an error during the installation related to errors with Visual Studio.
+Run the command after the reboot: `choco install nodejs` to complete / confirm the installation of choco
+Next, install Visual Studio >= 2019
+
+### Install React Dependencies
+Navigate to the "frontend" folder. Now run the following commands in the below sequence:
+- npm install
+- npm install react-scripts
+- npm start 
+
+You may get a warning about vulnerabilities but that is fine. These are nodejs vulnerabilities and ReactJS vulnerabilities.  
+You are now ready to run the backend starting with the containers in the next section. 
+
+### Using React when Pycharm is acting as webserver for debugging
+Make sure to run the debugger or update the `const flaskapiUrl = 'http://127.0.0.1:5000'` line in the `login.js`.  
+Also make sure to update the required environment variable for database connection and rebuild the container.  
+Otherwise, you will get refusal to connect when testing locally.
+
+***Note: Future release will provide support for implementing the code in the cloud.*** 
+
 ## Building Containers
 You can build this application using `docker-compose up --build -d`.  
 You do not need to rebuild the containers everytime to update the code on the server: `docker-compose up -d`.  
@@ -28,7 +55,7 @@ Replacing `venv` with your preferred virtual environment name:
    After activation, your terminal prompt should change to indicate that the virtual environment is active.
 
 5. Install Flask and its dependencies within the virtual environment:  
-`pip install flask`
+`pip install -r requirements.txt`
 
 Now you have a virtual environment set up for your Flask project. 
 You can start building your Flask application within this isolated environment.  
@@ -54,7 +81,7 @@ Replacing `venv` with your preferred virtual environment name:
 After activation, your terminal prompt should change to indicate that the virtual environment is active.
 
 5. Install Flask and its dependencies within the virtual environment:  
-`pip install flask`
+`pip install -r requirements.txt`
 
 Now you have a virtual environment set up for your Flask project. 
 You can start building your Flask application within this isolated environment.  
