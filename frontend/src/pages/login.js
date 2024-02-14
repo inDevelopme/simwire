@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom'
 
 const LoginForm = () => {
     // flask api url
-    const flaskapiUrl = 'http://127.0.0.1:5000'
+    const flaskapiUrl = 'http://localhost:9000'
 
     // use the usehistory hook to get the history object
     const navigate = useNavigate();
