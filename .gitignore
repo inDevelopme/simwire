@@ -143,3 +143,16 @@ virt/
 .env.production
 .env.staging
 .elasticbeanstalk
+
+# Ignore AWS configuration files
+.aws-exports.js
+aws-exports.js
+
+# Ignore AWS Amplify .config directory
+frontend/amplify/.config
+frontend/amplify/\#current-cloud-backend
+frontend/amplify/.config/local-*
+frontend/amplify/backend/amplify-meta.json
+frontend/amplify/backend/awscloudformation
+node_modules/
+frontend/src/amplifyconfiguration.json
